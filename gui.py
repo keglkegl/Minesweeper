@@ -3,6 +3,20 @@ FILEPATH = os.path.abspath(__file__)
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from random import randint
+imgs = {
+        'logo': 'imgs/mina_logo.png',
+        '0': 'imgs/nula.png',
+        '1': 'imgs/ena.png',
+        '2': 'imgs/dva.png',
+        '3': 'imgs/tri.png',
+        '4': 'imgs/stiri.png',
+        '5': 'imgs/pet.png',
+        '6': 'imgs/sest.png',
+        '7': 'imgs/sedem.png',
+        '8': 'imgs/osem.png',
+        'mine': 'imgs/mina.png',
+        'hidden': 'imgs/hidden.png'
+          }
 
 
 #Create a single cell object and its attributes
@@ -22,57 +36,57 @@ class Cell:
     #Define which picture a cell will have depending on mine_or_number variable and hidden attribute
     def picture(self):
         if self.hidden:
-            pixmap = QPixmap("hidden.png")
+            pixmap = QPixmap(imgs['hidden'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 9:
-            pixmap = QPixmap("mina.png")
+            pixmap = QPixmap(imgs['mine'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 8:
-            pixmap = QPixmap("osem.png")
+            pixmap = QPixmap(imgs['8'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 7:
-            pixmap = QPixmap("sedem.png")
+            pixmap = QPixmap(imgs['7'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 6:
-            pixmap = QPixmap("sest.png")
+            pixmap = QPixmap(imgs['6'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 5:
-            pixmap = QPixmap("pet.png")
+            pixmap = QPixmap(imgs['5'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 4:
-            pixmap = QPixmap("stiri.png")
+            pixmap = QPixmap(imgs['4'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 3:
-            pixmap = QPixmap("tri.png")
+            pixmap = QPixmap(imgs['3'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 2:
-            pixmap = QPixmap("dva.png")
+            pixmap = QPixmap(imgs['2'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 1:
-            pixmap = QPixmap("ena.png")
+            pixmap = QPixmap(imgs['1'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
         elif not(self.hidden) and self.mine_or_number == 0:
-            pixmap = QPixmap("nula.png")
+            pixmap = QPixmap(imgs['0'])
             self.label.setPixmap(pixmap)
             self.label.move(self.x, self.y)
 
@@ -326,7 +340,7 @@ class GuiMenu:
 
         #Create main picture logo and place it
         self.logo = QLabel(self.mainWindow)
-        pixmap = QPixmap("mina_logo.png")
+        pixmap = QPixmap(imgs['logo'])
         self.logo.setPixmap(pixmap)
         self.logo.move(120, 10)
 
@@ -366,7 +380,7 @@ class MainWindow(QWidget):
         self.width = 0
         self.height = 0
         self.setWindowTitle("Minesweeper")
-        self.setWindowIcon(QIcon('mina_logo.png'))
+        self.setWindowIcon(QIcon(imgs['logo']))
 
 app = QApplication([])
 guiMenu = GuiMenu()
